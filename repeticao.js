@@ -1,7 +1,29 @@
-for(let i =0; i <=10; i++)
-document.getElementById("tabuada").innerHTML = "<p>"
- +"<p> 2x0=" +(2*0) +"<P>"
- +"<p> 2x1=" +(2*1) +"<P>"
- +"<p> 2x2=" +(2*2) +"<P>"
- +"<p> 2x3=" +(2*3) +"<P>"
- +"<p> 2x4=" +(2*4) +"<P>"
+let tentativas = 0
+let tabuada=""
+for (let i = 0; i <= 10; i++) {
+    tabuada += "<p>2x" + i + "=" + (2 * i) + "<p>"
+}
+document.getElementById("tabuada").innerHTML = tabuada
+
+function adivinhacao() {
+    let sugestaoNumero = parseInt(document.getElementById("numero").value)
+    let numero = 5
+    let aviso = document.getElementById("aviso")
+    let sugestao = document.getElementById("sugestao")
+
+    while (sugestaoNumero !== numero) {
+        aviso.innerHTML = "tentativa" + (tentativas++) + 
+        "<p> numero errado! tente novamente.</p>"
+
+        if(numero>sugestaoNumero){
+            sugestao.innerHTML = "o numero é maior que sugeriu"
+
+        }
+        else{
+            sugestao.innerHTML = "o numero é menor que sugeriu"
+        }
+        sugestaoNumero.value = ""
+        return
+    }
+    sugestao.innerHTML = ""
+    aviso.innerHTML = "parabéns!! você acertou!!!"}

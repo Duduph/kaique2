@@ -33,30 +33,39 @@ function cadastrarUsuario(){
 
 }
 
+function usuario(nome,sobrenome,idade,altura){
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this.idade = idade;
+    this.altura = altura;
+}
+
+const listaUsuarios = [];
+
 function cadastrarListaUsuario(){
     let TabelaUsuarios = document.getElementById("TabelaUsuarios")
-    let usuario = {
-        nome : "",
-        sobrenome : "",
-        idade : 0,
-        altura : 0,
-    }
+    
+    
 
-    usuario.nome = document.getElementById("nome2").value
-    usuario.sobrenome = document.getElementById("sobrenome2").value
-    usuario.idade = document.getElementById("idade2").value
-    usuario.altura = document.getElementById("altura2").value
+    let nome = document.getElementById("nome2").value
+    let sobrenome = document.getElementById("sobrenome2").value
+    let idade = document.getElementById("idade2").value
+    let altura = document.getElementById("altura2").value
 
+        const usuarioPreenchido = new usuario(nome,sobrenome,idade,altura)
+
+        listaUsuarios[listaUsuarios.length] = usuarioPreenchido
     
 
 
     TabelaUsuarios.innerHTML += "<tr>"
-                                    +"<td>"+ usuario.nome +"</Td>"
-                                    +"<td>"+ usuario.sobrenome +"</Td>"
-                                    +"<td>"+ usuario.idade +"</Td>"
-                                    +"<td>"+ usuario.altura+"</Td>"
+                                    +"<td>"+ usuarioPreenchido.nome +"</Td>"
+                                    +"<td>"+ usuarioPreenchido.sobrenome +"</Td>"
+                                    +"<td>"+ usuarioPreenchido.idade +"</Td>"
+                                    +"<td>"+ usuarioPreenchido.altura+"</Td>"
                                     +"</tr>"
-    
+    document.getElementById("teste").innerHTML = listaUsuarios[0].nome + 
+    listaUsuarios[1].nome
     
 
 }
